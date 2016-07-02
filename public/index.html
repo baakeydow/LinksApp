@@ -1,0 +1,28 @@
+<!DOCTYPE>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular-route.min.js"></script>
+	<script src="sources/animate.css/angular-animate/angular-animate.js"></script>
+	<script src="html/controllers/Main-ctrl.js"></script>
+	<script src="html/controllers/links-ctrl.js"></script>
+	<script src="html/controllers/Coll-ctrl.js"></script>
+<title>Links App</title>
+</head>
+<body ng-app="mainCtrl" class="container" ng-controller="MainCtrl">
+
+	<select ng-model="template" ng-options="t.name for t in templates">
+	 <!-- <option value="">?</option> -->
+	</select>
+	url of the template: <code>{{template.url}}</code>
+	<hr/>
+
+	<div class="slide-animate-container">
+	  <div class="slide-animate" ng-include="template.url"></div>
+	</div>
+
+	<div ng-view></div>
+</body>
+</html>
