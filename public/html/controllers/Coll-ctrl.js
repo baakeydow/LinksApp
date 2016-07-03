@@ -21,6 +21,13 @@ $scope.addColl = function() {
 	});
 };
 
+$scope.selectColl = function(id) {
+  console.log(id);
+  $http.get('/dbColl/' + id).success(function(response) {
+    $scope.coll = response;
+  });
+};
+
 $scope.delColl = function(id) {
   console.log(id);
   $http.delete('/dbColl/' + id).success(function(response) {
@@ -28,10 +35,9 @@ $scope.delColl = function(id) {
   });
 };
 
-$scope.selectColl = function(id) {
-  console.log(id);
-  $http.get('/dbColl/' + id).success(function(response) {
-    $scope.coll = response;
+$scope.dropAll = function() {
+  $http.delete('/dbColl/').success(function(response) {
+    updateColl();
   });
 };
 

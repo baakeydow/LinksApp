@@ -33,18 +33,18 @@ app.get('/dbColl', function(req, res){
 	});
 });
 
+app.post('/dbColl', function(req, res){
+	Coll.dbColl.insert(req.body, function(err, doc) {
+		console.log(doc);
+		res.json(doc);
+	});
+});
+
 app.get('/dbColl/:id', function (req, res) {
 	var id = req.params.id;
 	Coll.dbColl.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
 		console.log('my collection is ' + JSON.stringify(doc.collection));
 		fs.writeFile("./test", JSON.stringify(doc.collection).replace(/['"]+/g, '') + '\n');
-		res.json(doc);
-	});
-});
-
-app.post('/dbColl', function(req, res){
-	Coll.dbColl.insert(req.body, function(err, doc) {
-		console.log(doc);
 		res.json(doc);
 	});
 });
@@ -57,6 +57,10 @@ app.delete('/dbColl/:id', function (req, res) {
   });
 });
 
+app.delete('/dbColl/', function (req, res) {
+	Coll.dbColl.drop();
+	console.log('db dropped');
+});
 
 //
 // Links
