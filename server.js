@@ -67,7 +67,7 @@ app.delete('/dbColl/', function (req, res) {
 //
 
 var techLinks = [];
-var linksdb = new String;
+var linksdb = "";
 
 
 function getCollData(lol, next){
@@ -81,7 +81,6 @@ function getCollData(lol, next){
 function getAllLinks(res){
 	getCollData(techLinks, function(linksdb){
 		console.log('I just got the ' + techLinks[0] + ' collection ');
-		console.log('and the ' + linksdb + ' database at the getAllLinks function');
 		linksdb[techLinks[0]].find(function (err, docs) {
 			console.log('here is the docs ==  ' + JSON.stringify(docs));
 			res.json(docs);
