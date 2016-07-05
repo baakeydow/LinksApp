@@ -4,6 +4,7 @@ App to manage links
 
 ## Prerequisites
 
+[mongodb](https://www.mongodb.com/download-center?jmp=nav#community)  
 [node](https://nodejs.org/en/)  
 [npm](https://www.npmjs.com/package/npm)
 
