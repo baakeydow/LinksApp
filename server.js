@@ -26,12 +26,18 @@ app.disable('x-powered-by');
 
 var Coll = mongojs('linkslist', ['dbColl']);
 
-app.get('/dbColl', function(req, res){
-	Coll.dbColl.find(function (err, doc) {
-		console.log(doc);
-		res.json(doc);
+
+
+var getAllColl = function() {
+	app.get('/dbColl', function(req, res){
+		Coll.dbColl.find(function (err, doc) {
+			console.log(doc);
+			res.json(doc);
+		});
 	});
-});
+}
+
+getAllColl();
 
 app.post('/dbColl', function(req, res){
 	Coll.dbColl.insert(req.body, function(err, doc) {
@@ -42,10 +48,13 @@ app.post('/dbColl', function(req, res){
 
 app.get('/dbColl/:id', function (req, res) {
 	var id = req.params.id;
+	var fd;
 	Coll.dbColl.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
 		if (!doc){return}
 		console.log('my collection is ' + JSON.stringify(doc));
+		fd = fs.openSync("./test", 'r');
 		fs.writeFile("./test", JSON.stringify(doc.collection).replace(/['"]+/g, '') + '\n');
+		fs.closeSync(fd);
 		res.json(doc);
 	});
 });
@@ -61,6 +70,7 @@ app.delete('/dbColl/:id', function (req, res) {
 app.delete('/dbColl/', function (req, res) {
 	Coll.dbColl.drop();
 	console.log('db dropped');
+	res.json('Cool');
 });
 
 //

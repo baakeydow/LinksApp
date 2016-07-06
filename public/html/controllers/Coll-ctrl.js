@@ -31,12 +31,13 @@ $scope.selectColl = function(id) {
 $scope.delColl = function(id) {
   console.log(id);
   $http.delete('/dbColl/' + id).success(function(response) {
-    updateColl();
+	updateColl();
   });
 };
 
 $scope.dropAll = function() {
   $http.delete('/dbColl/').success(function(response) {
+	console.log(response + " all Collections Dropped !!");
     updateColl();
   });
 };
