@@ -1,4 +1,4 @@
-forceKey();
+// forceKey();
 enigmeOnClick('1');
 // imageSwitcher();
 textAnim('.toanimate', 'shake');

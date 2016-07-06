@@ -43,7 +43,8 @@ app.post('/dbColl', function(req, res){
 app.get('/dbColl/:id', function (req, res) {
 	var id = req.params.id;
 	Coll.dbColl.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
-		console.log('my collection is ' + JSON.stringify(doc.collection));
+		if (!doc){return}
+		console.log('my collection is ' + JSON.stringify(doc));
 		fs.writeFile("./test", JSON.stringify(doc.collection).replace(/['"]+/g, '') + '\n');
 		res.json(doc);
 	});
@@ -133,6 +134,56 @@ app.put('/techLinks/:id', function (req, res) {
     }
 );
 });
+
+//
+// Contact
+//
+
+var contactdb = mongojs('contactlist', ['contactlist']);
+
+app.get('/contactlist', function (req, res) {
+  console.log('I received a GET request');
+  contactdb.contactlist.find(function (err, docs) {
+    console.log(docs);
+    res.json(docs);
+  });
+});
+
+app.post('/contactlist', function (req, res) {
+  console.log(req.body);
+  contactdb.contactlist.insert(req.body, function(err, doc) {
+    res.json(doc);
+  });
+});
+
+app.delete('/contactlist/:id', function (req, res) {
+  var id = req.params.id;
+  console.log(id);
+  contactdb.contactlist.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
+    res.json(doc);
+  });
+});
+
+app.get('/contactlist/:id', function (req, res) {
+  var id = req.params.id;
+  console.log(id);
+  contactdb.contactlist.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
+    res.json(doc);
+  });
+});
+
+app.put('/contactlist/:id', function (req, res) {
+  var id = req.params.id;
+  console.log(req.body.name);
+  contactdb.contactlist.findAndModify({
+    query: {_id: mongojs.ObjectId(id)},
+    update: {$set: {name: req.body.name, email: req.body.email, number: req.body.number}},
+    new: true}, function (err, doc) {
+      res.json(doc);
+    }
+  );
+});
+
 // Create an HTTP service.
 http.createServer(app).listen(8000);
 module.exports = app;
