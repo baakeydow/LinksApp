@@ -10,7 +10,7 @@ Private WebApp to manage/save links/youtube videos
 
 ### Getting Started
 
-`mongod`
+`sudo mongod`  
 `git clone https://github.com/bndao/LinksApp.git`  
 `cd LinksApp`  
 `npm install`  
