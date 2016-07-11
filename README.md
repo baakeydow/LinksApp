@@ -1,6 +1,6 @@
 # LinksApp
 
-App to manage links
+Private WebApp to manage/save links/youtube videos
 
 ## Prerequisites
 
@@ -10,6 +10,7 @@ App to manage links
 
 ### Getting Started
 
+`mongod`
 `git clone https://github.com/bndao/LinksApp.git`  
 `cd LinksApp`  
 `npm install`  

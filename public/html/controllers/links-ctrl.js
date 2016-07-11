@@ -8,8 +8,18 @@ angular.module('myLinks', ['ngRoute', 'ngAnimate'])
   .otherwise('/');
 })
 
-.controller('TechCtrl', ['$scope', '$http',
-			function($scope, $http) {
+.factory('rightWay', [ function(){
+	var o = {
+		toggleSidebar: function() {
+            $("#wrapper").toggleClass("toggled");
+		}
+	};
+	return o;
+}])
+
+
+.controller('TechCtrl', ['$scope', '$http', 'rightWay',
+			function($scope, $http, rightWay) {
 
 
 var refresh = function() {
@@ -56,6 +66,12 @@ $scope.update = function() {
 $scope.deselect = function() {
   $scope.tech = "";
 }
+$scope.displayVids = function(code) {
+	var div = document.getElementById("youtube");
+	div.innerHTML = "\n\t\t<iframe width=\"80%\" height=\"70%\"\n\t\tsrc=\"http://www.youtube.com/embed/" + code + "?autoplay=1\">\n\t\t</iframe>";
+    rightWay.toggleSidebar();
+};
+
 }])
 
 .run(function ($templateCache){

@@ -26,8 +26,6 @@ app.disable('x-powered-by');
 
 var Coll = mongojs('linkslist', ['dbColl']);
 
-
-
 var getAllColl = function() {
 	app.get('/dbColl', function(req, res){
 		Coll.dbColl.find(function (err, doc) {

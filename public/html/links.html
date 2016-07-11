@@ -14,6 +14,7 @@
           <th>&nbsp;</th>
         </tr>
       </thead>
+	  <div style="margin-top:30px;" align="center" id="youtube"></div>
       <tbody ng-mouseenter="options=true" ng-mouseleave="options=false">
         <!-- <tr ng-show="options"> -->
           <td><input class="form-control" ng-model="tech.desc" placeholder="Description"></td>
@@ -25,8 +26,9 @@
           <td>
 			  <a href="{{tech.name}}">{{tech.desc}}</a>
 		  </td>
-          <td><td><button ng-show="options" class="btn btn-danger" ng-click="remove(tech._id)">Remove</button></td></td>
+          <td><button ng-show="options" class="btn btn-danger" ng-click="remove(tech._id)">Remove</button></td>
           <td><button ng-show="options" class="btn btn-warning" ng-click="edit(tech._id)">Edit</button></td>
+          <td><button ng-show="options" class="btn btn-warning" ng-click="displayVids(tech.name)">Watch on youtube</button></td>
         </tr>
       </tbody>
     </table>

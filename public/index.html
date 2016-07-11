@@ -58,37 +58,37 @@
 				</li>
 			</ul>
 		</div>
-        <!-- /#sidebar-wrapper -->
-	        <!-- Page Content -->
-	        <div ng-app="myLinks" id="page-content-wrapper">
-	            <div class="container-fluid">
-	                <div class="row">
-	                    <div class="col-lg-12">
-							<h1 id="tochange1" class="header animated fadeInDown">let's get started</h1>
-	                    </div>
-	                </div>
-				</div>
-				<div id="hidden" class="frame">
-					<div id="list">
-						<a style="text-decoration:none" id="menu-toggle"><h2 id= 'tochange2' class="toanimate">Click Here</h2></a>
+<!-- /#sidebar-wrapper -->
+	<!-- Page Content -->
+		<div ng-app="myLinks" id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1 id="tochange1" class="header animated fadeInDown">let's get started</h1>
 					</div>
 				</div>
-<!-- coolstuff -->
-				<!-- templates-->
-				<select class="nav navbar-right top-nav" ng-model="template" ng-options="t.name for t in templates">
-				</select>
-				<div class="slide-animate-container">
-				  <div class="slide-animate" ng-include="template.url"></div>
-				</div>
-				<!-- angular -->
-				<div ng-view></div>
-				<!-- Custom -->
-				<div id="content"></div>
-<!-- EndofCoolStuff -->
-			<!-- /#page-content-wrapper -->
 			</div>
+			<div id="hidden" class="frame">
+				<div id="list">
+					<a style="text-decoration:none" id="menu-toggle"><h2 id= 'tochange2' class="toanimate">Click Here</h2></a>
+				</div>
+			</div>
+<!-- coolstuff -->
+<!-- templates-->
+			<select class="nav navbar-right top-nav" ng-model="template" ng-options="t.name for t in templates">
+			</select>
+			<div class="slide-animate-container">
+			  <div class="slide-animate" ng-include="template.url"></div>
+			</div>
+<!-- angular -->
+			<div ng-view></div>
+<!-- Custom -->
+			<div id="content"></div>
+<!-- EndofCoolStuff -->
+<!-- /#page-content-wrapper -->
 		</div>
-	<!-- /#wrapper -->
+	</div>
+<!-- /#wrapper -->
 </body>
 <script type="text/javascript" src="javascripts/scripts/main.js"></script>
 <script src="sources/js/bootstrap.min.js"></script>
