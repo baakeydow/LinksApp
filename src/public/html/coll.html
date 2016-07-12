@@ -1,0 +1,25 @@
+<div class="container" ng-controller="CollCtrl">
+	<table style="margin-top:30px;">
+		<thead style="font-size:20px; margin-left:10px;">
+			<tr>
+				&nbsp;&nbsp;
+				<td><input class="form-control"  ng-model="coll.collection" placeholder="Database Collection"></td>
+				<td>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="addColl()">Add Collection</button></td>
+				<td>&nbsp;&nbsp;<button class="btn btn-primary" ng-click="dropAll()">Drop all Collections</button></td>
+			</tr>
+		</thead>
+ 		<tbody>
+			<td>
+				&nbsp;&nbsp;
+			</td>
+			<tr ng-repeat="coll in dbColl" ng-mouseenter="options=true" ng-mouseleave="options=false">
+				<td>&nbsp;&nbsp;
+					{{coll.collection}}
+					&nbsp;&nbsp;
+					<button ng-show="options" class="btn btn-warning" ng-click="selectColl(coll._id)">Get Collection</button>
+					<button ng-show="options" class="btn btn-danger" ng-click="delColl(coll._id)">Drop Collection</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

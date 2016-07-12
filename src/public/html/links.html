@@ -1,0 +1,35 @@
+<div class="container" ng-controller="TechCtrl">
+	<table class="table">
+		<tr class="page-header">
+			<h1>Links App</h1>
+			<button class="btn btn-primary" ng-click="firedata()">FireData</button>
+		</tr>
+    </table>
+    <table class="table" style="margin-top:30px;">
+      <thead style="font-size:20px; margin-left:10px;">
+        <tr>
+          <th>Description</th>
+          <th>Links</th>
+          <th>Actions</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+	  <div style="margin-top:30px;" align="center" id="youtube"></div>
+      <tbody ng-mouseenter="options=true" ng-mouseleave="options=false">
+        <!-- <tr ng-show="options"> -->
+          <td><input class="form-control" ng-model="tech.desc" placeholder="Description"></td>
+          <td><input class="form-control" ng-model="tech.name"></td>
+          <td><button class="btn btn-primary" ng-click="addLinks()">Add Link</button></td>
+          <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+        <!-- </tr> -->
+        <tr ng-repeat="tech in techLinks | filter:tech.desc | orderBy:'Description'">
+          <td>
+			  <a href="{{tech.name}}">{{tech.desc}}</a>
+		  </td>
+          <td><button ng-show="options" class="btn btn-danger" ng-click="remove(tech._id)">Remove</button></td>
+          <td><button ng-show="options" class="btn btn-warning" ng-click="edit(tech._id)">Edit</button></td>
+          <td><button ng-show="options" class="btn btn-warning" ng-click="displayVids(tech.name)">Watch on youtube</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

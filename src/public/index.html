@@ -1,0 +1,95 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="bndao" content="">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Slabo+27px|Raleway' rel='stylesheet' type='text/css'>
+	<link href="sources/animate.css/animate.min.css" rel="stylesheet">
+	<link href="stylesheets/style.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/styles/css/plugins/morris.css" rel="stylesheet">
+	<link href="stylesheets/styles/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular-route.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="sources/animate.css/angular-animate/angular-animate.js"></script>
+	<script src="html/controllers/contact-ctrl.js"></script>
+	<script src="html/controllers/Main-ctrl.js"></script>
+	<script src="html/controllers/links-ctrl.js"></script>
+	<script src="html/controllers/Coll-ctrl.js"></script>
+	<script type="text/javascript" src="javascripts/scripts/animIt.js"></script>
+	<script type="text/javascript" src="javascripts/scripts/forceUserInput.js"></script>
+	<script type="text/javascript" src="javascripts/scripts/clickEvents.js"></script>
+	<title>21times2</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="stylesheets/styles/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
+	<link href="stylesheets/styles/css/simple-sidebar.css" rel="stylesheet">
+</head>
+<body ng-app="mainCtrl" class="container" ng-controller="MainCtrl">
+	<div id="wrapper">
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li class="sidebar-brand">
+					<a href="index.html">Home</a>
+				</li>
+				<li id="bookmarks">
+					<a>Bookmarks
+						<script>firePage("content","html/Bookmarks.html", "bookmarks")</script>
+					</a>
+				</li>
+				<li id="Pdfs_Fleet">
+					<a>Learning Materials
+						<script>firePage("content","html/Pdfs_Fleet.html", "Pdfs_Fleet")</script>
+					</a>
+				</li>
+				<li id="pages">
+					<a href="http://www.tech2hack.com/secret-android-codes-hidden-features/">Secret Android Codes
+					</a>
+				</li>
+				<li>
+					<a href="#">About
+					</a>
+				</li>
+			</ul>
+		</div>
+<!-- /#sidebar-wrapper -->
+	<!-- Page Content -->
+		<div ng-app="myLinks" id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1 id="tochange1" class="header animated fadeInDown">let's get started</h1>
+					</div>
+				</div>
+			</div>
+			<div id="hidden" class="frame">
+				<div id="list">
+					<a style="text-decoration:none" id="menu-toggle"><h2 id= 'tochange2' class="toanimate">Click Here</h2></a>
+				</div>
+			</div>
+<!-- coolstuff -->
+<!-- templates-->
+			<select class="nav navbar-right top-nav" ng-model="template" ng-options="t.name for t in templates">
+			</select>
+			<div class="slide-animate-container">
+			  <div class="slide-animate" ng-include="template.url"></div>
+			</div>
+<!-- angular -->
+			<div ng-view></div>
+<!-- Custom -->
+			<div id="content"></div>
+<!-- EndofCoolStuff -->
+<!-- /#page-content-wrapper -->
+		</div>
+	</div>
+<!-- /#wrapper -->
+</body>
+<script type="text/javascript" src="javascripts/scripts/main.js"></script>
+<script src="sources/js/bootstrap.min.js"></script>
+</html>
