@@ -1,4 +1,4 @@
-src/node_modules
-src/npm-debug.log
-src/users.htpasswd
-src/public/sources/pdfs/
+node_modules
+npm-debug.log
+users.htpasswd
+public/sources/pdfs/

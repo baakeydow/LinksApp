@@ -17,7 +17,3 @@ Private WebApp to manage/save links/youtube videos
 `touch users.htpasswd`  
 `htpasswd -db $PWD/users.htpasswd username passwd`  
 `npm start`
-
-### Dockerize it
-
-`sh launchContainer.sh`  
